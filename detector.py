@@ -185,7 +185,7 @@ array = np.array(contours)
 numpyData = {'result': array }
 file_path = "./path.json" ## your path variable
 # json.dump(numpyData, codecs.open(file_path, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
-with open("./result.json", "w") as write_file:
+with open("./json/" + FILE_NAME + ".json", "w") as write_file:
     json.dump(numpyData, write_file, cls=NumpyArrayEncoder)
 
 # json.dumps(numpyData)

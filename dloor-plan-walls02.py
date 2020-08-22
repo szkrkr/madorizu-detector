@@ -21,21 +21,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1,room_closi
     cv2.imwrite('./_.jpg', img)
     contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # for i, contour in enumerate(contours):
-    #     # 小さな領域の場合は間引く
-    #     area = cv.contourArea(contour)
-    #     if area < 20000:
-    #         continue
-    #     # 画像全体を占める領域は除外する
-    #     if image_size * 0.99 < area:
-    #         continue
-        
-    #     # 外接矩形を取得
-    #     x,y,w,h = cv2.boundingRect(contour)
-    #     dst = cv2.rectangle(dst,(x,y),(x+w,y+h),(0,255,0),2)
-
     mask = np.zeros_like(img)
-    cv2.imwrite('./_2.jpg', mask)
     for contour in contours:
         area = cv2.contourArea(contour)
         print(area)
